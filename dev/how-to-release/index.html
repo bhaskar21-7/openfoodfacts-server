@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -57,6 +57,22 @@
 
     
     
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
   </head>
   
   
@@ -1966,6 +1982,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../explain-frontend-build-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explain Frontend Build Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../explain-javascript-usage-and-strategy/" class="md-nav__link">
         
   
@@ -2252,33 +2296,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../explain-frontend-build-scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explain Frontend Build Scripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -2288,10 +2305,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -2309,8 +2326,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2438,6 +2455,8 @@ and the <code>docker/prod.yml</code> overlay.</p>
 the action is triggered. You can see it at
 https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/container-build.yml</p>
 <h2 id="production-environment">Production environment<a class="headerlink" href="#production-environment" title="Permanent link">#</a></h2>
+<p>When you do a Product Opener release, it's also a good time to do content release.
+Go to https://github.com/openfoodfacts/openfoodfacts-web/pulls?q=is%3Apr+is%3Aopen+release and create the release.</p>
 <p>Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the <code>backend</code> container version.</p>
 <p>In the command lines, I use $SERVICE and $VERSION variables,
@@ -2447,22 +2466,26 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 <li>merge the Release Please pull request.
    This will create a new release / version tag on github</li>
 <li>define your variables
-   <div class="highlight"><pre><span></span><code><span class="nb">declare</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span>xxxx<span class="w"> </span><span class="nv">SERVICE</span><span class="o">=</span><span class="nv">$HOSTNAME</span>
+   <div class="highlight"><pre><span></span><code><span class="nb">declare</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span>vX.YY.Z<span class="w"> </span><span class="nv">SERVICE</span><span class="o">=</span><span class="nv">$HOSTNAME</span>
+<span class="nb">declare</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">WEB_VERSION</span><span class="o">=</span>&lt;openfoodfacts-web<span class="w"> </span>version&gt;
 </code></pre></div></li>
 <li>verify there is no unreleased code on the server:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; git status&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; git status"</span>
 </code></pre></div></li>
 <li>update the code:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;git fetch &amp;&amp; git checkout </span><span class="nv">$VERSION</span><span class="s2">&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;git fetch &amp;&amp; git checkout </span><span class="nv">$VERSION</span><span class="s2">"</span>
 </code></pre></div></li>
 <li>verify every needed symlink is in place
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/verify-deployment.sh<span class="w"> </span><span class="nv">$SERVICE</span>
 </code></pre></div></li>
 <li>rebuild taxonomies and lang
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; ./scripts/taxonomies/build_tags_taxonomy.pl;./scripts/build_lang.pl&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; ./scripts/taxonomies/build_tags_taxonomy.pl --jobs=4;./scripts/build_lang.pl"</span>
 </code></pre></div></li>
-<li>on the PRO platform, also rebuild the fields columns names
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">;./scripts/build_pro_platform_fields_columns_names.pl&quot;</span>
+<li>update openfoodfacts-web content (using version you just released):
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/openfoodfacts-web/; git fetch; git checkout </span><span class="nv">$WEB_VERSION</span><span class="s2">"</span>
+</code></pre></div></li>
+<li>updated MongoDB indexes (if necessary)
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; perl ./scripts/create_mongodb_indexes.pl"</span>
 </code></pre></div></li>
 <li>update the frontend assets
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/install-dist-files.sh<span class="w"> </span><span class="nv">$VERSION</span><span class="w"> </span><span class="nv">$SERVICE</span>
@@ -2472,7 +2495,7 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
 <span class="c1"># we need start / stop for apache2 because restart does not reload perl modules</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
-<span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SERVICE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>off<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
+<span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$SERVICE</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>off<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service<span class="w"> </span>redis_listener@<span class="nv">$SERVICE</span>.service
 </code></pre></div></li>
 </ol>
@@ -2528,7 +2551,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

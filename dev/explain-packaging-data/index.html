@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -57,6 +57,22 @@
 
     
     
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
   </head>
   
   
@@ -1897,6 +1913,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../explain-frontend-build-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explain Frontend Build Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../explain-javascript-usage-and-strategy/" class="md-nav__link">
         
   
@@ -2592,33 +2636,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../explain-frontend-build-scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explain Frontend Build Scripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -2628,10 +2645,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -2649,8 +2666,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3157,16 +3174,16 @@
 <p>The resulting structure is:</p>
 <div class="highlight"><span class="filename">How the resulting packagings data structure is created</span><pre><span></span><code><span class="err">packagi</span><span class="kc">n</span><span class="err">gs</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="err">ma</span><span class="kc">ter</span><span class="err">ial</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:pet-polyethylene-terephthalate&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:recycle&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:bottle&quot;</span>
+<span class="w">        </span><span class="err">ma</span><span class="kc">ter</span><span class="err">ial</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:pet-polyethylene-terephthalate"</span><span class="p">,</span>
+<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:recycle"</span><span class="p">,</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:bottle"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:reuse&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:box&quot;</span>
+<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:reuse"</span><span class="p">,</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:box"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:container&quot;</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">"en:container"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
@@ -3269,7 +3286,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

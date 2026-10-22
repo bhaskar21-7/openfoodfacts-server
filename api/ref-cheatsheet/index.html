@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -57,6 +57,22 @@
 
     
     
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
   </head>
   
   
@@ -779,6 +795,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Search for Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-filter-based-search-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured (filter-based) search — API v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-plain-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-text / plain-text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2183,6 +2227,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../dev/explain-frontend-build-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explain Frontend Build Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../dev/explain-javascript-usage-and-strategy/" class="md-nav__link">
         
   
@@ -2469,33 +2541,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../explain-frontend-build-scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explain Frontend Build Scripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -2505,10 +2550,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -2526,8 +2571,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2706,6 +2751,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Search for Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-filter-based-search-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured (filter-based) search — API v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-plain-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-text / plain-text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2912,16 +2985,18 @@ add_brands
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
 </code></pre></div>
 <h2 id="search-for-products">Search for Products<a class="headerlink" href="#search-for-products" title="Permanent link">#</a></h2>
-<p><strong>Important:</strong> full text search currently works only for v1 API (or search-a-licious, which is in beta)</p>
+<h3 id="structured-filter-based-search-api-v2">Structured (filter-based) search — API v2<a class="headerlink" href="#structured-filter-based-search-api-v2" title="Permanent link">#</a></h3>
+<p>Structured search by tags, nutrients, categories, brands, and other fields is available via the <code>/api/v2/search</code> endpoint:</p>
 <ul>
-<li><a href="https://wiki.openfoodfacts.org/API/Read/Search">Documentation for v1 Search API</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/search/get-search/">Reference documentation for v2 search API</a></li>
 </ul>
-<ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Reference documentation for v2 search API</a></li>
-</ul>
-<ul>
-<li>The future of search in Open Food Facts is the <a href="https://github.com/openfoodfacts/search-a-licious">search-a-licious project</a>, deployed, in beta, at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>. It has an API: <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a></li>
-</ul>
+<blockquote>
+<p><strong>Note:</strong> <code>/api/v3/search</code> is not yet implemented.</p>
+</blockquote>
+<h3 id="full-text-plain-text-search">Full-text / plain-text search<a class="headerlink" href="#full-text-plain-text-search" title="Permanent link">#</a></h3>
+<p><strong>Full-text search is not available in the v2 or v3 server-side API.</strong></p>
+<p>For full-text search, we are building <a href="https://search.openfoodfacts.org/">Search-a-licious</a>, which will be deployed at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>. Search-a-licious will have a dedicated API: <a href="https://search.openfoodfacts.org/docs">Search-a-licious API documentation</a>.</p>
+<p>The legacy v1 search endpoint (<code>/cgi/search.pl</code>) supports keyword search but is not recommended for new integrations.</p>
 <h2 id="get-suggestions-for-fields">Get suggestions for fields<a class="headerlink" href="#get-suggestions-for-fields" title="Permanent link">#</a></h2>
 <h3 id="new-solution-search-a-licious-has-all-actually-used-values">New solution: Search-a-licious (has all actually used values)<a class="headerlink" href="#new-solution-search-a-licious-has-all-actually-used-values" title="Permanent link">#</a></h3>
 <p>Get brands, categories, labels… suggestions using the <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a>. 
@@ -2954,7 +3029,7 @@ You can also use the classic suggest.pl route</p>
 <h2 id="get-taxonomy-based-suggestions-v3-api">Get taxonomy-based suggestions (v3 API)<a class="headerlink" href="#get-taxonomy-based-suggestions-v3-api" title="Permanent link">#</a></h2>
 <p>The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.</p>
 <h3 id="reference-documentation">Reference documentation:<a class="headerlink" href="#reference-documentation" title="Permanent link">#</a></h3>
-<p>https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions</p>
+<p>https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/taxonomy/get-api-v3-taxonomy_suggestions-taxonomy/</p>
 <h3 id="example-requests">Example requests:<a class="headerlink" href="#example-requests" title="Permanent link">#</a></h3>
 <p>Get suggestions from synonyms
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&amp;lc=fr&amp;string=f&amp;get_synonyms=1
@@ -3035,7 +3110,7 @@ Get suggestions based on packaging shape
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

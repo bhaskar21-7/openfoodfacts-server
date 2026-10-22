@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -57,6 +57,22 @@
 
     
     
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
   </head>
   
   
@@ -1951,6 +1967,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../explain-frontend-build-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explain Frontend Build Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../explain-javascript-usage-and-strategy/" class="md-nav__link">
         
   
@@ -2237,33 +2281,6 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../explain-frontend-build-scripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Explain Frontend Build Scripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     
     
     
@@ -2273,10 +2290,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -2294,8 +2311,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2407,21 +2424,21 @@
 <p>If you want to add a translatable string in the code:</p>
 <ul>
 <li>modify the file with the <code>.pot</code> extension related to your context. Eg.
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">""</span>
 </code></pre></div></li>
 <li>modify the file <code>en.po</code> related to your context, to be sure at least an english string will be displayed before Crowdin send back all <code>.po</code> files (which can take several days). It should be the same code as the one from <code>.pot</code> + the english transaltion (see <code>msgstr</code> field). Eg.
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;Hello world!&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">"Hello world!"</span>
 </code></pre></div></li>
 <li>use your new string with the <code>lang()</code> function. Eg. in a template file: <code>[% lang('name_of_your_string') %]</code></li>
 <li>if you want to test your modifications in your dev environnement:<ul>
 <li>modify the <code>fr.po</code> files if you want to test in French; be aware it's just for test: these files will be overwritten by Crowdin. Eg. in French:
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;Salut le monde!&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">"Salut le monde!"</span>
 </code></pre></div></li>
 <li>don't forget to <code>make build_lang</code> to let docker take your modifications into account</li>
 </ul>
@@ -2479,7 +2496,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
